@@ -1,0 +1,9 @@
+name: SimpleXcodeApp
+targets:
+  SimpleXcodeApp:
+    type: application
+    platform: iOS
+    sources: [SimpleXcodeApp]
+    settings:
+      base:
+        INFO_PLIST_FILE: SimpleXcodeApp/Info.plist
