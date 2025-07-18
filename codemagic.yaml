@@ -1,1 +1,14 @@
-
+workflows:
+  ios-simple-app:
+    name: Simple iOS Build
+    environment:
+      xcode: 15.3  # use Xcode 15 or whichever version matches your setup
+    scripts:
+      - name: Clean build folder
+        script: |
+          xcodebuild clean -project "SimpleXcodeApp.xcodeproj" -scheme "SimpleXcodeApp"
+      - name: Build for simulator
+        script: |
+          xcodebuild build -project "SimpleXcodeApp.xcodeproj" -scheme "SimpleXcodeApp" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+    artifacts:
+      - build/Build/Products/Debug-iphonesimulator/*.app
